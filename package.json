@@ -10,6 +10,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "find-config": "^1.0.0",
     "strapi": "3.0.0-beta.19.5",
