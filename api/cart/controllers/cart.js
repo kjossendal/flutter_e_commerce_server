@@ -5,4 +5,11 @@
  * to customize this controller
  */
 
-module.exports = {};
+module.exports = {
+  update: async (ctx, next) => {
+    const { products } = ctx.request.body;
+    return strapi.services.cart.update(ctx.params, {
+      products: JSON.parse(products),
+    });
+  },
+};
