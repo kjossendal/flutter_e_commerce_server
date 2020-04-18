@@ -14,14 +14,25 @@ module.exports = {
   //     ctx.body = err;
   //   }
   // }
-  findcard: async (ctx, next) => {
+  findcards: async (ctx, next) => {
     try {
       const customerId = ctx.request.querystring;
-      const customer = await stripe.customers.retrieve(customerId);
-      const cardData = customer.sources.data;
-      ctx.send(cardData);
+      // const customer = await stripe.customers.retrieve(customerId);
+      // const cardData = customer.sources.data;
+      const pms = await stripe.paymentMethods.list({customer: customerId, type: 'card'});
+
+      ctx.send(pms.data);
     } catch (error) {
       ctx.send(error);
+    }
+  },
+  addcard: async (ctx, next) => {
+    try {
+      const { customer, source }  = ctx.request.body;
+      const attached = await stripe.paymentMethods.attach(source, { customer })
+      ctx.send(attached);
+    } catch (error) {
+      ctx.send(error) ;
     }
   }
 };

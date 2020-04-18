@@ -3,7 +3,15 @@
     {
       "method": "GET",
       "path": "/payment/card",
-      "handler": "payment.findcard",
+      "handler": "payment.findcards",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/payment/card",
+      "handler": "payment.addcard",
       "config": {
         "policies": []
       }
