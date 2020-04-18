@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/payment/card",
+      "handler": "payment.findcard",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
