@@ -21,11 +21,13 @@ module.exports = {
       }, {
         idempotencyKey: idempotencyKey
       });
-      return strapi.services.order.add({
+
+      strapi.services.order.create({
         amount,
         products: JSON.parse(products),
         user: ctx.state.user
       });
+      ctx.send(charge);
     } catch (error) {
       ctx.send(error);
     }
