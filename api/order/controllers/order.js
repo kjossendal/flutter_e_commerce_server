@@ -16,7 +16,7 @@ module.exports = {
         payment_method_types: ['card'],
         confirm: true, // attempts to confirm intent immediately
         customer: customer,
-        description: 'My First Test Charge (created for API docs)',
+        description: 'User account name eventually',
         receipt_email: email
       }, {
         idempotencyKey: idempotencyKey

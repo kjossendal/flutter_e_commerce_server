@@ -20,6 +20,9 @@
       "plugin": "users-permissions",
       "model": "user",
       "via": "orders"
+    },
+    "stripe_order_id": {
+      "type": "string"
     }
   }
 }
